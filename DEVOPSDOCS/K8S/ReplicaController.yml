@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: nginx
+spec: 
+  replicas: 3
+  selector:
+    app: nginx
+  template:
+    metadata:
+    name: first-rc
+    lables:
+      app: nginx
+    spec:
+      containers: 
+        - name: first-rc-container
+          image: nginx
+          ports:
+            - containerPorts= 80    
+

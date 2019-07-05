@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 3
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+     maxUnavailable: 1
+     maxSurge: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: first-container-deployment
+        image: httpd
+        ports:
+        - containerPort: 80

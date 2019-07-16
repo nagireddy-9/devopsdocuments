@@ -33,3 +33,12 @@ passwordauthentication yes
     ```
     sudo chkconfig --add jenkins
     ``` 
+## Jenkins-Slave(Node) COnfiguration
+* Java need to be install on slave nodes.
+* create a user in salve node(what user was created in master should be      the same )
+* make that user sudo privilize and make him passwordless authentication
+ ## Configure with master
+   * go to Manage Jenkins--> Manage Node
+     * give a agent name and make him parement agent
+     * give the creadentiol of slavenode user.
+   

@@ -1,7 +1,7 @@
-FROM openjdk:8-jdk
+FROM tomcat:latest
 
-ENV CATALINA_HOME  /usr/share/tomcat8/bin
-RUN  apt-get update && apt-get install tomcat8 -y 
-COPY  ./gameoflife.war /usr/share/tomcat8/webapps/gameoflife.war 
+
+ 
+COPY  gameoflife.war /usr/local/tomcat/webapps/gameoflife.war 
 CMD ["catalina.sh", "run"]
 

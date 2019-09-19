@@ -37,7 +37,7 @@
 ```
 provider "aws" {
     access_key = "${var.aws_access_key}"
-    secret_key = "hY99tu8426oydyk5vcrUtINUVcexxJM0InDkR7bc"
+    secret_key = "${var.aws_secret_key}"
     region = "us-west-2"
   
 }
@@ -178,6 +178,6 @@ variable "key_path" {
 ```
 #### terraform.tfvars
 ```
-aws_access_key = "AKIA2DIMYJHGGBFWWENH"
-aws_secret_key = "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"
+aws_access_key = "somthing"
+aws_secret_key = "somthing"
 ```

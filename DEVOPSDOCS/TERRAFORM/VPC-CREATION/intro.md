@@ -16,7 +16,12 @@
 #### how to pass variable [Preview](https://www.terraform.io/docs/configuration/variables.html)
 
 ## CONNECTION AND PROVISIONERS
-
+ #### PROVISIONER
+* We can write provisioners in several ways
+1. inline
+2. script
+3. scripts
+4. remote and local provisioners [Preview](https://www.terraform.io/docs/provisioners/remote-exec.html)
 ```
    connection = {
         user = "${var.os_user}"

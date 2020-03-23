@@ -1,0 +1,71 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install openjdk
+      apt:
+        name: default-jdk
+        update_cache: yes
+        state: present
+
+
+    - name: Add user/group
+      group:
+        name: tomcat
+        state: present
+
+
+    - name: Create user
+      user:
+        name: tomcat
+        state: present
+        group: tomcat
+        home: /opt
+        system: yes
+
+    - name: creating a directory
+      file:
+        path: /opt/tomcat
+        state: directory
+        owner: tomcat
+        group: tomcat
+
+    - name: Download Tomcat9
+      get_url:
+        url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
+        dest: /opt 
+        owner: tomcat
+        group: tomcat
+        remote_src: yes
+
+    - name: untar 
+      unarchive:
+        src: /opt/apache-tomcat-9.0.26.tar.gz
+        dest: /opt/tomcat
+        owner: tomcat
+        group: tomcat
+        mode: '0655'
+
+    
+
+    - name: service tomcat template
+      template:
+        src: tomcat.service.j2
+        dest: /etc/systemd/system/tomcat.service
+      
+##    - name: Reload Systemctl Demon 
+##      service:
+##        name: daemon-reloaded
+##        state: reloaded 
+
+    - name: Systemctl daemon-reloaded
+      command: systemctl daemon-reload
+
+    - name: start tomcat service
+      service:
+        name: tomcat
+        state: started
+        enabled: yes
+         
+
+    

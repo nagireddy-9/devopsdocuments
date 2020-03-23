@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: install git on ubuntu 18.06
+      apt: 
+        name: git
+        update_cache: yes
+        state: present

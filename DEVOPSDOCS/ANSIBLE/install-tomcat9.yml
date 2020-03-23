@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  become: yes
+  tasks: 
+    - name: install openjdk on ubuntu 18.04
+      apt:
+        name: default-jdk
+        update_cache: yes
+        state: present
+    - name: creating a tomcat user 
+      user:
+        name: tomcat
+        state: present
+        home: /opt
+        group: tomcat
+    - name: download tomcat9 from url
+      get_url:
+        url: http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz 
+        dest: /tmp
+    - name: untar the tomcat dump
+      unarchive:
+        src: /tmp/*.tar.gz
+        dest: /opt/tomcat
+    - name: run tomcat service
+      shell: /opt/tomcat/bin/*.sh
+        

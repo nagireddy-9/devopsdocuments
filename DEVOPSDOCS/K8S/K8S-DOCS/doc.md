@@ -2,9 +2,10 @@
 * K8S mainly Master and Nodes(older name of nodes is miniones)
 * ### master componetes
   * Apiserver()
-  * MsterController
-  * Kube Controller
+  * Kube-Controller Manager
   * Scheduler
+  * etcd
+  * Kube-Cloud-Controller
 * ### Node components
   * Kubelet(this is k8s agent)
   * Container Enigine

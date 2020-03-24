@@ -25,5 +25,3 @@
 
 ## TAINT NODE:
 * means k8s master working as a node called taint node generelly it will not open in prodcation.
-
-9849522725

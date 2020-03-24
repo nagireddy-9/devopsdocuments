@@ -2,7 +2,7 @@
 provider "aws" {
 
 access_key= "${var.aws_access_key}"
-secreat_key ="${var.aws_seceret_key}"
+secret_key ="${var.aws_seceret_key}"
 region=""  
 }
 

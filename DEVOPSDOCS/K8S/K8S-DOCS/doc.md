@@ -24,4 +24,4 @@
    * SPEC:: specification is tell to Apiserver what has to be done.
 
 ## TAINT NODE:
-* means k8s master working as a node called taint node generelly it will not open in prodcation.
+* means k8s master working as a node called taint node generelly it will not happen in production.
